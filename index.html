@@ -3,43 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevHealth | Analytics</title>
+    <title>DevHealth | Developer Wellbeing Tracker</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dev-theme">
-    <div class="sidebar">
-        <h2 class="logo">🩹 DevHealth</h2>
-        <nav>
-            <a href="#" class="active"><i class="fas fa-heartbeat"></i> Wellbeing</a>
-            <a href="#"><i class="fas fa-code-branch"></i> Activity</a>
-            <a href="#"><i class="fas fa-coffee"></i> Break Reminders</a>
-        </nav>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fas fa-heartbeat"></i>
+                <span>DevHealth</span>
+            </div>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-chart-line"></i> Wellbeing Score</a>
+                <a href="#"><i class="fas fa-bed"></i> Sleep Analysis</a>
+                <a href="#"><i class="fas fa-mug-hot"></i> Break Timer</a>
+            </nav>
+            <div class="user-status">Team: Engineering</div>
+        </aside>
+
+        <main class="main-view">
+            <header class="dashboard-header">
+                <div class="header-text">
+                    <h1>Focus & Fatigue Tracker</h1>
+                    <p>AI-driven insights to prevent developer burnout.</p>
+                </div>
+                <button id="analyze-btn" class="cta-btn">Analyze GitHub Activity</button>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="label">Burnout Risk</span>
+                    <div class="value" id="burnout-value">--%</div>
+                    <p class="status-msg" id="risk-text">Scan repo to start</p>
+                </div>
+                <div class="stat-box">
+                    <span class="label">Focus Intensity</span>
+                    <div class="value text-blue">78%</div>
+                    <p class="status-msg">Optimal deep work</p>
+                </div>
+                <div class="stat-box">
+                    <span class="label">Late Night Commits</span>
+                    <div class="value text-orange" id="late-commits">0</div>
+                    <p class="status-msg">Past 12:00 AM</p>
+                </div>
+            </div>
+
+            <div id="insight-card" class="insight-container" style="display:none;">
+                <h3><i class="fas fa-lightbulb"></i> Wellness Recommendation</h3>
+                <div id="recommendation-box" class="recommendation"></div>
+            </div>
+        </main>
     </div>
-    <main class="content">
-        <header>
-            <h1>Team Pulse Dashboard</h1>
-            <p>Monitoring developer burnout levels in real-time.</p>
-        </header>
-        <div class="stats-row">
-            <div class="card">
-                <h3>Burnout Risk</h3>
-                <div class="val" id="burnout-score">--%</div>
-            </div>
-            <div class="card">
-                <h3>Focus Hours</h3>
-                <div class="val">6.2h</div>
-            </div>
-            <div class="card">
-                <h3>Lines/Commit</h3>
-                <div class="val">42</div>
-            </div>
-        </div>
-        <button id="analyze-btn" class="primary-btn">Analyze My Repo</button>
-        <div id="results" class="results-box" style="display:none;">
-            <h3>Insight: <span id="insight-text">...</span></h3>
-        </div>
-    </main>
     <script src="script.js"></script>
 </body>
 </html>
